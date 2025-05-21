@@ -24,9 +24,7 @@ gcloud services enable cloudfunctions.googleapis.com
 
 5. Cloud Function Setup ---main.py
 
-B. Create requirements.txt
-
-	google-cloud-firestore
+B. Create requirements.txt	
 
 6. Deploy the Cloud Function
 
