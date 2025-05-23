@@ -1,32 +1,29 @@
-1. **Create a GCP Project**
-
-```bash
-gcloud projects create chat-logger --set-as-default
-
-
-2. Enable Required APIs
+1. Enable Required APIs
 
 gcloud services enable pubsub.googleapis.com
 gcloud services enable firestore.googleapis.com
 gcloud services enable cloudfunctions.googleapis.com
 
 
-3. Set Up Firestore
+2. Set Up Firestore
 	a. Go to the Firestore section in Google Cloud Console.
 
 	b. Click Create Database.
 
 	c. Choose Production Mode and select a region.
 
-4. Create a Pub/Sub Topic
+3. Create a Pub/Sub Topic
 
 	gcloud pubsub topics create chat-messages
 
-5. Cloud Function Setup ---main.py
+4. Cloud Function Setup 
+	mkdir -p chat-logger-function
+ 	cd chat-logger-function 
+  	nano main.py
+   	nano requirements.txt
+    	cd ..
 
-B. Create requirements.txt	
-
-6. Deploy the Cloud Function
+5. Deploy the Cloud Function
 
 	gcloud functions deploy pubsub_to_firestore \
   	--runtime python310 \
@@ -45,6 +42,12 @@ gcloud pubsub topics publish chat-messages \
 
 ✅ Check Firestore
 Open Firestore in GCP Console.
+This is the most common way to view Firestore data.
+Steps:
+1.	Go to https://console.cloud.google.com/firestore
+2.	Select your GCP project (e.g., qwiklabs-gcp-03-8c040ae4c59b)
+3.	You’ll see a list of collections on the left (e.g., chats)
+4.	Click a chat_id → messages → View documents (messages stored)
 
 Navigate to:
 
